@@ -69,7 +69,7 @@ class level0 {
 			}		
 
 			else {
-				System.out.println("No you can do that. Try again.");
+				System.out.println("No you can't do that. Try again.");
 				
 				do{
 				System.out.println("Again, do you want to explore the world?[y/n] ");
@@ -95,7 +95,7 @@ class level0 {
 	void explore0() {
 		System.out.println();
 		System.out.println();
-		System.out.println("You roamed in the park. You are at a crossroad inside the park");
+		System.out.println("You roamed in the park. You are at a crossroad inside the park. Enter number.");
 		crossroad(); //here is the line where the program goes ahead.
 	}
 
@@ -229,28 +229,28 @@ class level1 {
 		void letter() {
 		System.out.println("In the letter is: ");
 
-		System.out.println("+---------------------------------------------------------+");
-        System.out.println("|From the guy who made you,                               |");
-        System.out.println("|                                                         |");
-        System.out.println("|Don't try to find me, the world thinks I am dead and     |");
-        System.out.println("|that's for good. Whoever finds this. There's a bug in    |");
-        System.out.println("|in the world I created. I am afraid it might fall in the |");
-        System.out.println("|wrong hands. Yesterday, while tinkering and testing one  |");
-        System.out.println("|of my personal project, I created a virus.               |");
-        System.out.println("|                                                         |");
-        System.out.println("| I am sorry to burden you, but it's you that needs to    |");
-        System.out.println("| solve this problem.                                     |");
-        System.out.println("|                                                         |");
-        System.out.println("| If you tell anyone about this, your memory card will be |");
-        System.out.println("| destroyed. Meet me in Area-69.                          |");
-        System.out.println("|                                                         |");        
-        System.out.println("| If you don't take any action then too your memory card  |");       
-        System.out.println("| will be destoryed. I am smart, ain't I?                 |");        
-        System.out.println("|                                                         |");         
-        System.out.println("|                                                         |");
-        System.out.println("|world's last human and your man,                         |");        
-        System.out.println("|bill joy, xoxo                                           |");                
-        System.out.println("+---------------------------------------------------------+");
+		System.out.println("                    +---------------------------------------------------------+");
+        System.out.println("                    |From the guy who made you,                               |");
+        System.out.println("                    |                                                         |");
+        System.out.println("                    |Don't try to find me, the world thinks I am dead and     |");
+        System.out.println("                    |that's for good. Whoever finds this. There's a bug in    |");
+        System.out.println("                    |in the world I created. I am afraid it might fall in the |");
+        System.out.println("                    |wrong hands. Yesterday, while tinkering and testing one  |");
+        System.out.println("                    |of my personal project, I created a virus.               |");
+        System.out.println("                    |                                                         |");
+        System.out.println("                    | I am sorry to burden you, but it's you that needs to    |");
+        System.out.println("                    | solve this problem.                                     |");
+        System.out.println("                    |                                                         |");
+        System.out.println("                    | If you tell anyone about this, your memory card will be |");
+        System.out.println("                    | destroyed. Meet me in Area-69.                          |");
+        System.out.println("                    |                                                         |");        
+        System.out.println("                    | If you don't take any action then too your memory card  |");       
+        System.out.println("                    | will be destoryed. I am smart, ain't I?                 |");        
+        System.out.println("                    |                                                         |");         
+        System.out.println("                    |                                                         |");
+        System.out.println("                    |world's last human and your man,                         |");        
+        System.out.println("                    |bill joy, xoxo                                           |");                
+        System.out.println("                    +---------------------------------------------------------+");
         what_now(); 
 
 		}
@@ -412,9 +412,11 @@ class level2 extends custom{  //used inheritance here
 		System.out.println("You've proved yourself worty of the weapon");
 		System.out.println();
 		System.out.println("What weapon do you want?");
-		System.out.println("You are at get-anything-weapon store. Do remember you only have two things");
+		System.out.println("You are at get-anything-weapon store. Do remember you can only have three things.");
+		System.out.println("Press enter after typing one item. ");
 		 String[] weapon = new String[3];
-		String[] tochecknothingrandom = {"gun", "donut", "ray", "sword", "spear", "axe", "armor", "energy gun", "a magic key", "watch"};
+		String[] tochecknothingrandom = {"| gun |", "| donut |", 
+		"| ray |", "| sword |", "| spear |", "| axe |", "| armor |", "| energy gun |", "| a magic key |", "| watch |"};
 
 
 		System.out.println("You can choose your weapons from here: ");
@@ -454,14 +456,16 @@ class level3 extends custom {
 
 	void first_scene_level3() {
 		System.out.println("oops, your battery seems to be critically low");
-		System.out.println("Your batter is " + currentbattery);
+		System.out.println("Your battery is " + currentbattery + "%");
 		System.out.println("What will you do?");
 
 
 			String a = sc.nextLine();
 
 
-			if ( (checkcontains(a, "battery") == true) || (checkcontains(a, "charging") == true) || (checkcontains(a, "charger") == true)){
+			if ( (checkcontains(a, "battery") == true) || (checkcontains(a, "charging") == true) || 
+				(checkcontains(a, "charger") == true) || (checkcontains(a, "charge") == true) || (checkcontains(a, "charged") == true)
+				|| (checkcontains(a, "power") == true)){
 					System.out.println("finding nearest charging spot....");
 
 					//wait and say found
@@ -518,13 +522,22 @@ class level3 extends custom {
 		System.out.println("");
 
 		int choice = sc.nextInt();
-
+		//consent class to ask to start game again.
+		consent c = new consent();
+		//consent class end to ask start game again.
 		switch(choice) {
 			case 1:
 			System.out.println("And fush. He used his sharp arm to go through you. All turned black.");
 			System.out.println("Game over");
 			//game starts again
-			super.main(null);	// calling main method using the super keyword
+			
+			System.out.println("Do you want to play again? [y/n]");
+			char b = sc.next().charAt(0);
+
+			c.asktostartgameagain(b);
+
+
+				// calling main method using the super keyword
 
 
 			break;
@@ -547,6 +560,7 @@ class level3 extends custom {
 			level2 arrobj = new level2();
 
 			System.out.println("You used your " + arrobj.weapontokill + " to kill the terminator");
+			after_terminator();
 			break;
 
 			default:
@@ -554,6 +568,36 @@ class level3 extends custom {
 			break;
 		}
 	}
+
+
+	void after_terminator() {
+		System.out.println("You see a old shag. You go inside it.");
+		System.out.println("There's a old machine lying there running Arch. You go near it.");
+		System.out.println("A audio file plays.");
+
+		System.out.println();
+		System.out.println();
+
+		System.out.println("It says the following: ");
+		System.out.println("Fate of the world depends on you. I am what's left of Bill Joy, ");
+		System.out.println("I by mistake wrote a program, that might kill your world");
+		System.out.println("You need to sacrifice yourself to solve it. ");
+
+		System.out.println();
+		System.out.println("Integrate the following from 0 to 1, ");
+		System.out.println("(84x − 42) dx");
+
+		int answertotheuniverse = sc.nextInt();
+
+		if(answertotheuniverse == 42) {
+			System.out.println("You won. You will die in 3.. 2.. 1.. but you won.");
+			System.out.println("42, answer to world's biggest questions.");
+			System.out.println("That's what bill's favourite writer Douglas Adams said.");
+			System.out.println("Thanks for playing.");
+		}
+
+	}
+
 
 }
 
@@ -608,4 +652,20 @@ String checkcontainsarrwithprint(String t1[], String t2[]) {
 
 //using the above function to get desired output
 
+}
+
+
+class consent extends custom {
+	void asktostartgameagain(char a) {
+
+			if (a == 'y' || a =='Y') {
+			super.main(null);	// calling main method using the super keyword
+			}
+
+			else {
+				System.out.println("Thanks for playing.");
+				System.out.println("Do run me soon. :)");
+			}
+
+	}
 }

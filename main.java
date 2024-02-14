@@ -317,15 +317,18 @@ class level2 extends custom{  //used inheritance here
 	}
 
 	void puzzle_to_weapons() {
+		System.out.println();
 		System.out.println("In this world, computation and smartness is key");
 		System.out.println("To pay for weapons, you need to solve the following");
 		game_for_weapons(); //here is program proceeds
 	}
 
 	void game_for_weapons() {
-
+				System.out.println();
+				System.out.println();
 				char[] array1 = {'d', 'e', 'o', 'r', 'l', 'o', 'w', 'l', 'l', 'h'};
-
+				System.out.println();
+				System.out.println();
 				//thought to use random class inbuilt from java
 
 				for (int i = 0; i<array1.length; i++) {
@@ -336,11 +339,26 @@ class level2 extends custom{  //used inheritance here
 				String guess_for_game;
 
 				do {
+					System.out.println();
 					System.out.println("Hey, robot equipped with the best cpu, ");
 					System.out.println("What is the word that you are seeing? Guess here: ");
 
 					guess_for_game = sc.nextLine();
-										try_counter = try_counter + 1;
+
+					String to_check = guess_for_game.toLowerCase();
+
+					//breaks if the word is choosed correctly
+					if ( (checkcontains(to_check, "helloworld") == true) || (checkcontains(to_check, "hello world") == true)){
+						System.out.println("You guessed correctly.");
+						System.out.println("The word was hello world");
+						giving_weapons();//program will procced from here.
+						break;
+					}
+					//checks if the word is choosen correctly above
+
+
+
+					try_counter = try_counter + 1;
 				}
 
 				while(try_counter<=3);
@@ -363,11 +381,47 @@ class level2 extends custom{  //used inheritance here
 				if (try_counter>=6) {
 					System.out.println("You deserve to lose");
 					System.out.println("Start the game again moron. ");
+					System.out.println("Game over");
+					System.out.println();
+					System.out.println();
+					System.out.println();
+
+					System.out.println("Do you want to play again?[y/n]");
+
+					char choose = sc.next().charAt(0);
+
+					if (choose == 'y' || choose =='Y') {
+					super.main(null);	// calling main method using the super keyword
+					}
+
+					else {
+						System.out.println("Ok. Thanks for playing. Please do consider to run this code again");
+						System.out.println("some time. Bye till then.");
+					}
+
 				}
 
 
 
+	} //this bracket is of method end
+
+
+
+		void giving_weapons() {
+		System.out.println("You've proved yourself worty of the weapon");
+		System.out.println();
+		System.out.println("What weapon do you want?");
+		System.out.println("You are at get-anything-weapon store. Do remember you only have two things");
+		String[] weapon = new String[3];
+		String[] tochecknothingrandom = {"gun", "donut", "ray", "sword", "spear", "axe", "armor", "energy gun", "a magic key", "watch"};
+
+		for (int i =0; i<weapon.length; i++) {
+			weapon[i] = sc.nextLine();
+			
+		}
+		System.out.println(checkcontainsarrwithprint(weapon, tochecknothingrandom));
 	}
+
 
 }
 
@@ -375,7 +429,7 @@ class level3 {
 
 }
 
-class custom {
+class custom extends main{ //the super in level2 works because of this.
 	boolean checkcontains(String t1, String t2) {
 //  String t1 = ;
 //  String t2 = ;
@@ -396,5 +450,34 @@ else {
 
 }
 
+
+//need to write boolean check contains but for array now
+
+boolean checkcontainsarr(String t1[], String t2[]){
+	//static int i = 0;
+    for (int i = 0; i < t1.length; i++) {
+        if (t1[i].equals(t2[i])) {
+            return true;  // If a match is found, return true
+        }
+    }
+
+    return false;  // If no match is found after checking all elements, return false
+
+}
+
+
+
+//
+
+String checkcontainsarrwithprint(String t1[], String t2[]) {
+	for(int i = 0; i<t1.length; i++) {
+		if(checkcontainsarr(t1, t2) == false) {
+			return t1[i] + " is not available. Think of something else.";
+		}
+		}
+		return null;
+}
+
+//using the above function to get desired output
 
 }

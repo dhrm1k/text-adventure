@@ -251,17 +251,150 @@ class level1 {
         System.out.println("|world's last human and your man,                         |");        
         System.out.println("|bill joy, xoxo                                           |");                
         System.out.println("+---------------------------------------------------------+");
+        what_now(); 
 
+		}
+
+		void what_now() {
+
+			level2 l2obj = new level2(); // level 2 object.
+
+			System.out.println("What you want to do now? ");
+			System.out.println("1. FORGET ABOUT THE LETTER");
+			System.out.println("2. PLAN A JOURNEY TO AREA-69");
+
+
+			//IF START 
+
+			char a = sc.next().charAt(0);
+
+
+				if (a == '2') {
+					System.out.println("Correct choice");
+				   l2obj.going_to();//here is the line where the program goes ahead
+			}		
+
+			else {
+				System.out.println("No, I know you are not this boring.");
+				System.out.println("When life gives you chances to go on adventures, do it.");
+				System.out.println("These adventures is what is going to make your life fun.");
+				
+				do{
+				System.out.println("So, again, do you want to go on a journey? ");
+				a = sc.next().charAt(0);
+
+				//if statement start	
+				if (a == '2') {
+					System.out.println("Correct choice");
+						l2obj.going_to();	 //here is the line where program goes ahead when no after yes
+
+					break;
+
+				}
+				//if statement end
+
+				}
+
+				while(a != 1 );
+}
+
+			//IF END
 
 		}
 
 
  }
 
-class level2 {
+class level2 extends custom{  //used inheritance here
+	
+		Scanner sc = new Scanner(System.in);
+
+	void going_to() {
+		System.out.println("Area-69 is a place where no robot has dared to go.");
+		System.out.println("So I better be well equipped if I am going there...");
+		System.out.println("I will collect weapons on the way.");
+		puzzle_to_weapons();// here is program proceeds
+	}
+
+	void puzzle_to_weapons() {
+		System.out.println("In this world, computation and smartness is key");
+		System.out.println("To pay for weapons, you need to solve the following");
+		game_for_weapons(); //here is program proceeds
+	}
+
+	void game_for_weapons() {
+
+				char[] array1 = {'d', 'e', 'o', 'r', 'l', 'o', 'w', 'l', 'l', 'h'};
+
+				//thought to use random class inbuilt from java
+
+				for (int i = 0; i<array1.length; i++) {
+					System.out.print(" " + array1[i] + " ");
+				}
+
+				int try_counter = 0;
+				String guess_for_game;
+
+				do {
+					System.out.println("Hey, robot equipped with the best cpu, ");
+					System.out.println("What is the word that you are seeing? Guess here: ");
+
+					guess_for_game = sc.nextLine();
+										try_counter = try_counter + 1;
+				}
+
+				while(try_counter<=3);
+
+				if (try_counter >= 4) {
+					System.out.println("HINT: It's the first basic program everyone writes");
+					System.out.println("in a programming language when they learn.");
+										guess_for_game = sc.nextLine();
+
+										try_counter = try_counter + 1;
+				}
+
+				if (try_counter >= 5) {
+					System.out.println("It starts with hello and ends with letter 'd'.");
+										guess_for_game = sc.nextLine();
+										try_counter = try_counter + 1;
+
+				}
+
+				if (try_counter>=6) {
+					System.out.println("You deserve to lose");
+					System.out.println("Start the game again moron. ");
+				}
+
+
+
+	}
 
 }
 
 class level3 {
+
+}
+
+class custom {
+	boolean checkcontains(String t1, String t2) {
+//  String t1 = ;
+//  String t2 = ;
+
+//  String string t1 = "Java";
+//String substring t2 = "va";
+boolean a = t1.contains(t2);
+
+if (a == true) {
+ return true;
+
+//return boolean;
+}
+
+else {
+  return false;
+} 
+
+}
+
 
 }

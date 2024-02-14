@@ -2,17 +2,49 @@ import java.util.*;
 
 class main {
 	public static void main(String args[]) {
+
+
 		System.out.println("You are a robot on Worl0. I am the Watcher. I watch everything and no one even knows I exist. ");
 		System.out.println("I will narrate you his story.");
 		
 
-		robo r1 = new robo();
-		level0 l = new level0();
-		l.stranded();	
+		intro intro = new intro();
+		intro.ascii_art();
+		//robo r1 = new robo();
+		//level0 l = new level0();
+		//l.stranded();	
 		//r1.name();
 		//r1.nameprint();
 	}
 }
+
+class intro {
+
+	 void ascii_art(){
+		System.out.println("██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗    ████████╗ ██████╗     ██╗    ██╗ ██████╗ ██████╗ ██╗      ██████╗ ██╗");
+		System.out.println("██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝    ╚══██╔══╝██╔═══██╗    ██║    ██║██╔═══██╗██╔══██╗██║     ██╔═████╗██║");
+		System.out.println("██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗         ██║   ██║   ██║    ██║ █╗ ██║██║   ██║██████╔╝██║     ██║██╔██║██║");
+		System.out.println("██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝         ██║   ██║   ██║    ██║███╗██║██║   ██║██╔══██╗██║     ████╔╝██║╚═╝");
+		System.out.println("╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗       ██║   ╚██████╔╝    ╚███╔███╔╝╚██████╔╝██║  ██║███████╗╚██████╔╝██╗");
+ 		System.out.println("╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝       ╚═╝    ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝");
+
+ 		setting_intro();
+	}
+
+
+	 void setting_intro() {
+	 	System.out.println();
+	 	System.out.println();
+		System.out.println("You are last surviving robot on Worl0. I am the Watcher. I watch everything and no one even knows I exist. ");
+		System.out.println("I will narrate you his story.");
+
+		level0 l0 = new level0();
+		l0.stranded();
+	}
+
+}
+
+
 
 class Otherstuff {
   int playerhp;
@@ -280,7 +312,7 @@ class level1 {
 				System.out.println("These adventures is what is going to make your life fun.");
 				
 				do{
-				System.out.println("So, again, do you want to go on a journey? ");
+				System.out.println("So, again, do you want to go on a journey? [1/2] ");
 				a = sc.next().charAt(0);
 
 				//if statement start	
@@ -415,14 +447,14 @@ class level2 extends custom{  //used inheritance here
 		System.out.println("You are at get-anything-weapon store. Do remember you can only have three things.");
 		System.out.println("Press enter after typing one item. ");
 		 String[] weapon = new String[3];
-		String[] tochecknothingrandom = {"| gun |", "| donut |", 
-		"| ray |", "| sword |", "| spear |", "| axe |", "| armor |", "| energy gun |", "| a magic key |", "| watch |"};
+		String[] tochecknothingrandom = {"gun", "donut", 
+		"ray", "sword", "spear", "axe", "armor", "energy gun", "a magic key", "watch"};
 
 
 		System.out.println("You can choose your weapons from here: ");
 
 		for(int i=0; i<tochecknothingrandom.length; i++ ){
-			System.out.print(" " + tochecknothingrandom[i] + " ");
+			System.out.print("| " + tochecknothingrandom[i] + " |");
 		}
 
 		System.out.println();
@@ -435,6 +467,7 @@ class level2 extends custom{  //used inheritance here
 		weapontokill = weapon[1];
 
 		System.out.println(checkcontainsarrwithprint(weapon, tochecknothingrandom));
+		System.out.println();
 		level3 l3 = new level3();
 		l3.first_scene_level3();
 
@@ -546,8 +579,14 @@ class level3 extends custom {
 			System.out.println("You started to run... you ran and ran.");
 			System.out.println("and there came a ball like the sun and boooooom.");
 			System.out.println("Game over");
+
+			System.out.println("Do you want to play again? [y/n]");
+			char z = sc.next().charAt(0);
+
+			c.asktostartgameagain(z);
+
 			//game starts again
-			super.main(null);	// calling main method using the super keyword
+			// calling main method using the super keyword
 
 			break;
 
@@ -585,7 +624,7 @@ class level3 extends custom {
 
 		System.out.println();
 		System.out.println("Integrate the following from 0 to 1, ");
-		System.out.println("(84x − 42) dx");
+		System.out.println("(84x -- 42) dx");
 
 		int answertotheuniverse = sc.nextInt();
 
@@ -644,6 +683,7 @@ boolean checkcontainsarr(String t1[], String t2[]){
 String checkcontainsarrwithprint(String t1[], String t2[]) {
 	for(int i = 0; i<t1.length; i++) {
 		if(checkcontainsarr(t1, t2) == false) {
+			System.out.println();
 			return t1[i] + " is not available. Think of something else.";
 		}
 		}

@@ -406,26 +406,154 @@ class level2 extends custom{  //used inheritance here
 	} //this bracket is of method end
 
 
+		static String weapontokill; //global variable to be used further
 
 		void giving_weapons() {
 		System.out.println("You've proved yourself worty of the weapon");
 		System.out.println();
 		System.out.println("What weapon do you want?");
 		System.out.println("You are at get-anything-weapon store. Do remember you only have two things");
-		String[] weapon = new String[3];
+		 String[] weapon = new String[3];
 		String[] tochecknothingrandom = {"gun", "donut", "ray", "sword", "spear", "axe", "armor", "energy gun", "a magic key", "watch"};
 
+
+		System.out.println("You can choose your weapons from here: ");
+
+		for(int i=0; i<tochecknothingrandom.length; i++ ){
+			System.out.print(" " + tochecknothingrandom[i] + " ");
+		}
+
+		System.out.println();
+		
 		for (int i =0; i<weapon.length; i++) {
 			weapon[i] = sc.nextLine();
 			
 		}
+
+		weapontokill = weapon[1];
+
 		System.out.println(checkcontainsarrwithprint(weapon, tochecknothingrandom));
+		level3 l3 = new level3();
+		l3.first_scene_level3();
+
 	}
 
 
 }
 
-class level3 {
+class level3 extends custom {
+
+	Scanner sc = new Scanner(System.in);
+
+	int currentbattery;
+
+	level3() {
+		currentbattery = 20;
+	}
+
+
+	void first_scene_level3() {
+		System.out.println("oops, your battery seems to be critically low");
+		System.out.println("Your batter is " + currentbattery);
+		System.out.println("What will you do?");
+
+
+			String a = sc.nextLine();
+
+
+			if ( (checkcontains(a, "battery") == true) || (checkcontains(a, "charging") == true) || (checkcontains(a, "charger") == true)){
+					System.out.println("finding nearest charging spot....");
+
+					//wait and say found
+					System.out.println("charging station found.");
+					after_charging();
+					 //here is the line where the program goes ahead
+			}		
+
+			else {
+				System.out.println("No, you were supposed to look for charging station.");
+				
+				//print ascii glitch character
+
+				System.out.println("I am dying...");
+
+				System.out.println("Game Over");
+
+				
+				/*do{
+				System.out.println("So, again, do you want to read the letter?[y/n] ");
+				a = sc.next().charAt(0);
+
+				//if statement start	
+				if (a == 'y' || a == 'Y' ) {
+					System.out.println("Correct choice");
+					letter();	 //here is the line where program goes ahead when no after yes
+
+					break;
+
+				}
+				//if statement end
+
+				}
+
+				while(a != 'y' || a != 'Y' );*/
+		}
+
+
+
+	}
+
+
+	void after_charging() {
+		System.out.println("After charging, you have come on the gate of Area 69.");
+		System.out.println("And what? There's a terminator there.");
+		System.out.println("Looks like T-800. Terminator is the robot that kills good robots.");
+
+		System.out.println();
+		System.out.println("What would you want to do? ");
+		System.out.println("1. Go infront of him");
+		System.out.println("2. Start to sprint fast and get inside the gate and hide.");
+		System.out.println("3. Attack from behind");
+
+		System.out.println("");
+
+		int choice = sc.nextInt();
+
+		switch(choice) {
+			case 1:
+			System.out.println("And fush. He used his sharp arm to go through you. All turned black.");
+			System.out.println("Game over");
+			//game starts again
+			super.main(null);	// calling main method using the super keyword
+
+
+			break;
+
+			case 2:
+			System.out.println("You started to run... you ran and ran.");
+			System.out.println("and there came a ball like the sun and boooooom.");
+			System.out.println("Game over");
+			//game starts again
+			super.main(null);	// calling main method using the super keyword
+
+			break;
+
+			case 3:
+			System.out.println("That was a wise choice.");
+			System.out.println("It might not be a wise choice here, but here it is.");
+
+			//level 2 object
+
+			level2 arrobj = new level2();
+
+			System.out.println("You used your " + arrobj.weapontokill + " to kill the terminator");
+			break;
+
+			default:
+			System.out.println("Not an option. You are facing a terminator. Be serious. For Sarah Connors.");
+			break;
+		}
+	}
 
 }
 
